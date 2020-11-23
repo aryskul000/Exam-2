@@ -1,0 +1,265 @@
+---
+title: 'Exam #2'
+author: "Adil Ryskulov"
+date: "11/23/2020"
+output: html_document
+---
+
+
+### 1. (15 points) Please answer the following; you might find it useful to make a sketch.
+
+#a. For a Normal Distribution that has mean 1 and standard deviation 6.5, what is the area to the left of 1.65?
+
+mean=1
+std=6.5
+x=1.65
+
+z=(x-mean)/std
+z=(1.65-1)/6.5
+z=0.1
+
+p(z<0.1)=p(z=0.1)
+
+p(z<0.1)=0.5398
+
+The area to the left of 1.65 is 0.5398.
+
+# b. For a Normal Distribution that has mean 8 and standard deviation 2.7, what is the area in both tails farther from the mean than 13.67?
+
+mean=8
+std=2.7
+x1=mean+13.67
+x2=mean-13.67
+
+x1=8+13.67
+x1=21.67
+
+x2=8-13.67
+x2=-5.67
+
+z1=(x1-mean)/std
+z1=(21.67-8)/2.7
+z1=5.06
+
+z2=(x2-mean)/std
+z2=(-5.67-8)/2.7
+z2=-5.06
+
+p(z<-5.67,z>5.67)=(z=-5.67)+(1-[z=5.67])
+p(z<-5.67,z>5.67)=0.00001+1-0.99999
+
+p(z<-5.67,z>5.67)=0.00002
+
+The area on both tails farther from mean than 13.67 is 0.00002.
+
+# c. For a Normal Distribution that has mean -11 and standard deviation 4, what is the area in both tails farther from the mean than -5.4?
+
+mean=-11
+std=4
+x1=mean+(-5.4)
+x2=mean-(-5.4)
+
+x1=-11+(-5.4)
+x1=-16.4
+
+x2=-11-(-5.4)
+x2=-5.6
+
+z1=(x1-mean)/std
+z1=(-16.4-[-11])/4
+z1=-1.35
+
+z2=(x2-mean)/std
+z2=(-5.6-[-11])/4
+z2=1.35
+
+p(z<-1.35,z>1.35)=(z=-1.35)+(1-[z=1.35])
+p(z<-1.35,z>1.35)=0.0885+1-0.9115
+
+p(z<-1.35,z>1.35)=0.1770
+
+The area on both tails farther from mean than -5.4 is 0.1470.
+
+# d. For a Normal Distribution that has mean 14 and standard deviation 7.4 what two values leave probability 0.158 in both tails?
+
+mean=14
+std=7.4
+x1=?
+x2=?
+
+p=0.158/2
+
+p=0.079
+
+z(p=0.079)=1.41 and -1.41
+
+x1=std*z+mean
+x1=7.4*1.41+14
+x1=24.434
+
+x2=std*z+mean
+x2=7.4*(-1.41)+14
+x2=3.566
+
+The two values leaving probability 0.158 in both tails are 24.434 and 3.566.
+
+# e. A regression coefficient is estimated to be equal to 6.56 with standard error 4.1; there are 24 degrees of freedom. What is the p-value (from the t-statistic) against the null hypothesis of zero?
+
+regression coefficient=6.56
+SE=4.1
+DF=24
+
+t=regression coefficient/SE
+t=6.56/4.1
+t=1.6
+
+p(t=1.6)=0.1227
+
+The p-value against the null hypothesis of zero is 0.1227.
+
+# f. A regression coefficient is estimated to be equal to -0.24 with standard error 0.4; there are 4 degrees of freedom. What is the p-value (from the t-statistic) against the null hypothesis of zero?
+
+regression coefficient=-0.24
+SE=0.4
+DF=4
+
+t=regression coefficient/SE
+t=-0.24/0.4
+t=-0.6
+
+p(t=-0.6)=0.7096
+
+The p-value against the null hypothesis of zero is 0.7096.
+
+
+
+### 2. (10 points) As we consider, “did everything change after March 2020?” look at crude oil prices. The average daily return of crude oil was 0.000145 with standard deviation of 0.0213 in 289 days before March 1. Average daily return after that date was -0.0210 with standard deviation of 0.271 in 174 days after. Is there a statistically significant difference in the mean? Calculate t-stat and p-value for the test against no difference in daily returns.
+
+Null hypothesis: the average daily return of crude oil are identical prior to March 2020 and after.
+Alternative hypothesis: the average daily return of crude oil are not identical prior to March 2020 and after.
+
+mean1=0.000145
+std1=0.0213
+n1=289
+
+mean2=-0.0210
+std2=0.271
+n2=174
+
+t=chamge in mean / change in SE
+
+change in SE = ([n1*squre(std1)+n2*square(std2)]/[n1+n2-2])^(1/2)*([1/n1]+[1/n2])^(1/2)
+
+change in SE = ([289*0.0213^2]/[174*0.271^2]/[289+174-2])^(1/2)*([1/289]+[1/174])^(1/2)
+change in SE =0.0161
+
+t=(0.0001145-[-0.0210])/0.0161
+t=1.3134
+
+DF=n1+n2-2
+DF=289+174-2
+DF=461
+
+p-value=0.1897
+
+0.1897>0.05, thus, the two mean are statistically significant in 95% confidence interval and the null hypothesis is not rejected and average daily returns from crude oil are identical prior and after March 2020.
+
+
+
+### 3. (10 points) In good news, there was information about vaccine trials. Consider (these are not quite the actual data but a simplified version) looking at 2 groups, each with 10,000 people. In the control group who did not get the vaccine there were 90 infections. In the test group that did get the vaccine there were 15 infections. Calculate the t-stat and p-value for the test against no difference in infection rates between groups.
+
+Null hypothesis: No difference in infaction rate.
+Alternative hypothesis: there is difference in infection rate.
+
+n1=10,000
+x1=90
+
+n2=10,000
+x2=15
+
+p1=x1/n1
+p1=90/10,000
+p1=0.0090
+
+p2=x2/n2
+p2=15/10,000
+p2=0.0015
+
+p*=(n1*p1+n2*p2)/(n1+n2)
+p*=(10,000*0.090+10,000*0.0015)/(10,000+10,000)
+p*=0.0053
+
+t=(p1-p2)/([p*]*(1-p*)*((1/n1)+(1/n2)))^(1/2)
+t=(0.090-0.0015)/(0.0053*(1-0.0053)*((1/10,000)+(1/10,000)))^(1/2)
+t=7.3385
+
+p-value=2.24e^-13
+
+2.24e^-13<0.01, thus, the difference in infection rate between control and test groups are statisticallu significant and the null hypothesis rejected.
+
+
+# The next questions will use the PUMS ACS 2017 NY data that we’ve been using so often in class. We’ll consider people’s decisions about usual hours worked, given by the variable UHRSWORK. There are 3 broad categories: people who are not in the labor force, those working part time (UHRSWORK > 0 and < 35) and those working full time ( >= 35).
+
+
+
+### 4. (10 points) Create a subgroup of the sample, that makes sense as we focus on the decision of whether to work full time or part time. Explain your rationale.
+
+For a subgroup I choose to select individuals who are in labor force and aged between 25 and 65. There are two different subgroups one of which consist individuals working full time while other consist individual working part time.
+
+```{r}
+load("C:/Users/Acer/Desktop/CCNY/2020/Fall 2020/Statistics and Introduction to Econometrics ECO B2000 2RS/R/PUMS data/ny/acs2017_ny_data.RData")
+attach(acs2017_ny)
+subgroup_part <- (AGE >= 25) & (AGE <= 65) & (LABFORCE == 2) & (UHRSWORK>0) & (UHRSWORK<35)
+dat_use_part <- subset(acs2017_ny,subgroup_part) #
+detach()
+attach(acs2017_ny)
+subgroup_full <- (AGE >= 25) & (AGE <= 65) & (LABFORCE == 2) & (UHRSWORK>=35)
+dat_use_full <- subset(acs2017_ny,subgroup_full) #
+detach()
+```
+
+
+
+
+### 5. (10 points) Within this subgroup, test if there is a difference between men and women. Calculate a t-stat and p-value for the test of no difference between the groups. Provide simple statistics for a few other relevanant categories.
+
+
+```{r}
+
+```
+
+
+
+
+### 6. (20 points) Estimate a simple OLS model for hours worked, within your subsample.
+
+In this OLS model I used individual working full time and based line individual is male with high school diploma.
+
+```{r}
+Model1 <- lm (UHRSWORK ~ AGE + I(AGE^2) + female + educ_nohs + educ_college + educ_somecoll + educ_advdeg, data=dat_use_full)
+summary(Model1)
+```
+
+# a. Explain what variables you choose to use as predictors. Do they seem exogenous? Consider whether polynomials in Age are important or interactions with dummy variables.
+
+In this OLS model I piked AGE and AGE squared variable to see how an age effects on hours warked. Also, I choose to square an age to support asumption that older individual have higher rate to work more then yanger individuals.
+In addition, the gender diferenciated variable of female was utilized in order to observe how gender effects on working hours. It is belived that female work less that male which OLS supports.
+Also, the education level was picked in order to see weather advantage in education level anables individual to work less hourse due to higher wages to enjoy more leasure (as labor economics theory sugects). However, this OLS model disproves this assumption.
+
+# b. Do your estimates seem plausible? Are the estimates each statistically significant?
+All variable (except education level of non high school) in this model are statistically signnificant at 99% sgnificance level. The AGE and AGE squared variable seems along with gender separator (female) are plausible, as it is asumed then older individual work more that yanget individuals and male tend to work longer hours then female.
+The education level also plauseble result where individual with higher education level tend to work more due to enjoiment of their carier even if this agains labor economy theory's suggestion which states that individuals work less when income rises (income rises with education level).
+
+# c. Construct a joint test of whether a reasonable set of coefficients (such as age polynomials, or education dummies) are all zero.
+
+```{r}
+
+```
+
+
+
+All of the work on this exam is my own, answered honestly as rules state.
+
+Name: Adil Ryskulov
+
+Date: November 23, 2020
